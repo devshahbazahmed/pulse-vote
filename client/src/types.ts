@@ -2,6 +2,7 @@ import type React from 'react';
 
 export type AuthMode = 'sign-in' | 'sign-up';
 export type View = 'polls' | 'create' | 'respond' | 'analytics';
+export type AppRoute = '/' | '/auth' | '/dashboard';
 
 export type AuthedRequest = <T>(
   path: string,

@@ -29,6 +29,14 @@ Password: 123456
 - View response analytics with vote bars
 - Dark blue responsive UI
 
+## Frontend Routes
+
+```txt
+/            Landing page
+/auth        Sign in and sign up
+/dashboard   Authenticated poll console
+```
+
 ## Project Structure
 
 ```txt

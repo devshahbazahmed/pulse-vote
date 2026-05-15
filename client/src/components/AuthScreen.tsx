@@ -15,6 +15,7 @@ type AuthScreenProps = {
   setAuthMode: Dispatch<SetStateAction<AuthMode>>;
   setAuthForm: Dispatch<SetStateAction<AuthForm>>;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  onBackHome: () => void;
 };
 
 function AuthScreen({
@@ -25,12 +26,15 @@ function AuthScreen({
   setAuthMode,
   setAuthForm,
   onSubmit,
+  onBackHome,
 }: AuthScreenProps) {
   return (
     <main className="auth-page">
       <section className="auth-panel">
         <div>
-          <p className="eyebrow">Pulse Vote</p>
+          <button className="brand-button compact" type="button" onClick={onBackHome}>
+            Pulse Vote
+          </button>
           <h1>Run focused polls and read the room fast.</h1>
         </div>
 
