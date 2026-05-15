@@ -1,12 +1,17 @@
 import 'dotenv/config';
+import http from 'node:http';
+import { Server } from 'socket.io';
 import express from 'express';
-import type { Request, Response, NextFunction } from 'express';
+import type { Response } from 'express';
 import cors from 'cors';
 import jose from 'node-jose';
 import path from 'node:path';
 import connectDB from './db';
 import { PUBLIC_KEY } from './utils/cert';
 import authRoutes from './routes/auth.routes';
+import pollRoutes from './routes/poll.routes';
+import pollResponseRoutes from './routes/pollResponse.routes';
+import analyticsRoutes from './routes/analytics.routes';
 
 const app = express();
 
@@ -20,6 +25,7 @@ connectDB(process.env.DATABASE_URL!)
 
 app.use(express.json());
 app.use(express.static(path.resolve('public')));
+app.use(cors());
 
 app.get('/', (_, res) => {
   return res.status(200).json({
@@ -46,7 +52,32 @@ app.get('/.well-known/jwks.json', async (_, res: Response) => {
 });
 
 app.use('/o/', authRoutes);
+app.use('/api/poll', pollRoutes);
+app.use('/api/poll-response', pollResponseRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
-app.listen(PORT, () => {
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST', 'PATCH'],
+  },
+});
+
+io.on('connection', (socket) => {
+  console.log('Socket connected');
+
+  socket.on('join_poll', (pollId) => {
+    socket.join(pollId);
+  });
+  socket.on('disconnect', () => {
+    console.log('Socket disconnected');
+  });
+});
+
+server.listen(PORT, () => {
   console.log(`Server started running on http://localhost:${PORT}`);
 });
+
+export { io };
