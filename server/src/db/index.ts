@@ -1,6 +1,12 @@
-import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/node-postgres';
+import mongoose from 'mongoose';
 
-const db = drizzle(process.env.DATABASE_URL!);
+async function connectDB(uri: string) {
+  try {
+    const conn = await mongoose.connect(uri);
+    return conn;
+  } catch (error) {
+    console.error(`Error in connecting to MongoDB Database`);
+  }
+}
 
-export default db;
+export default connectDB;
