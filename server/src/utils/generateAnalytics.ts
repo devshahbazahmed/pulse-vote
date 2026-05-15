@@ -1,5 +1,5 @@
-import { Poll } from '../models/poll.model';
-import { PollResponse } from '../models/response.model';
+import { Poll } from '../models/poll.model.js';
+import { PollResponse } from '../models/response.model.js';
 
 export const generateAnalytics = async (pollId: string) => {
   const poll = await Poll.findById(pollId);

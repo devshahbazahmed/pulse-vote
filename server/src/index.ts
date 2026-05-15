@@ -6,12 +6,12 @@ import type { Response } from 'express';
 import cors from 'cors';
 import jose from 'node-jose';
 import path from 'node:path';
-import connectDB from './db';
-import { PUBLIC_KEY } from './utils/cert';
-import authRoutes from './routes/auth.routes';
-import pollRoutes from './routes/poll.routes';
-import pollResponseRoutes from './routes/pollResponse.routes';
-import analyticsRoutes from './routes/analytics.routes';
+import connectDB from './db/index.js';
+import { PUBLIC_KEY } from './utils/cert.js';
+import authRoutes from './routes/auth.routes.js';
+import pollRoutes from './routes/poll.routes.js';
+import pollResponseRoutes from './routes/pollResponse.routes.js';
+import analyticsRoutes from './routes/analytics.routes.js';
 
 const app = express();
 

@@ -1,6 +1,6 @@
 import express from 'express';
-import * as pollController from '../controllers/poll.controller';
-import { authenticateUser } from '../middlewares/auth.middleware';
+import * as pollController from '../controllers/poll.controller.js';
+import { authenticateUser } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 

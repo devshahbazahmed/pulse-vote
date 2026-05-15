@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import type { Request, Response } from 'express';
-import type { JWTClaims } from '../utils/user-token';
-import { User } from '../models/user.model';
+import type { JWTClaims } from '../utils/user-token.js';
+import { User } from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { PRIVATE_KEY } from '../utils/cert';
+import { PRIVATE_KEY } from '../utils/cert.js';
 import path from 'node:path';
 
 type RequestWithUser = Request & { user?: JWTClaims };

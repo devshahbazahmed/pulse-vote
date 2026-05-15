@@ -1,5 +1,5 @@
 import express from 'express';
-import { submitPollResponse } from '../controllers/pollResponse.controller';
+import { submitPollResponse } from '../controllers/pollResponse.controller.js';
 
 const router = express.Router();
 

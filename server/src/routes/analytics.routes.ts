@@ -1,5 +1,5 @@
 import express from 'express';
-import { getPollAnalytics } from '../controllers/analytics.controller';
+import { getPollAnalytics } from '../controllers/analytics.controller.js';
 
 const router = express.Router();
 

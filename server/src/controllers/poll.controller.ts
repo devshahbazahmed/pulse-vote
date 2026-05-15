@@ -1,8 +1,8 @@
 import type { Request, Response } from 'express';
-import { Poll } from '../models/poll.model';
-import type { JWTClaims } from '../utils/user-token';
-import { generateAnalytics } from '../utils/generateAnalytics';
-import { io } from '..';
+import { Poll } from '../models/poll.model.js';
+import type { JWTClaims } from '../utils/user-token.js';
+import { generateAnalytics } from '../utils/generateAnalytics.js';
+import { io } from '../index.js';
 
 type RequestWithUser = Request & { user?: JWTClaims };
 
