@@ -25,7 +25,12 @@ connectDB(process.env.DATABASE_URL!)
 
 app.use(express.json());
 app.use(express.static(path.resolve('public')));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL!,
+    credentials: true,
+  })
+);
 
 app.get('/', (_, res) => {
   return res.status(200).json({
@@ -60,7 +65,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: '*',
+    origin: process.env.CLIENT_URL!,
     methods: ['GET', 'POST', 'PATCH'],
   },
 });
