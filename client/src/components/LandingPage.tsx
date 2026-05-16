@@ -74,7 +74,10 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
           </dl>
         </div>
 
-        <div className="landing-preview" aria-label="Pulse Vote dashboard preview">
+        <div
+          className="landing-preview"
+          aria-label="Pulse Vote dashboard preview"
+        >
           <div className="preview-toolbar">
             <span />
             <span />
@@ -85,8 +88,8 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
               <p className="eyebrow">Dashboard</p>
               <h2>Product feedback sprint</h2>
               <p>
-                Prioritize roadmap ideas with a lightweight poll and publish
-                the result once responses are in.
+                Prioritize roadmap ideas with a lightweight poll and publish the
+                result once responses are in.
               </p>
               <div className="preview-stat-row">
                 <div>
@@ -205,33 +208,11 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
         ))}
       </section>
 
-      <section className="landing-demo" id="demo" aria-label="Demo login">
-        <div>
-          <p className="eyebrow">Demo access</p>
-          <h2>Use the seeded test account to explore the full workflow.</h2>
-          <p>
-            Sign in, create a poll, submit sample responses, publish results,
-            and inspect the analytics dashboard.
-          </p>
-        </div>
-        <div className="credential-card">
-          <span>Email</span>
-          <strong>test@test.com</strong>
-          <span>Password</span>
-          <strong>123456</strong>
-          <button
-            className="primary-button"
-            type="button"
-            onClick={() => onNavigate('/auth')}
-          >
-            Open sign in
-          </button>
-        </div>
-      </section>
-
       <section className="landing-final">
         <p className="eyebrow">Ready when the room is</p>
-        <h2>Launch a poll, collect a pulse, and turn responses into a decision.</h2>
+        <h2>
+          Launch a poll, collect a pulse, and turn responses into a decision.
+        </h2>
         <button
           className="primary-button"
           type="button"
