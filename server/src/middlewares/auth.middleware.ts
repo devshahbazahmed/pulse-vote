@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { PUBLIC_KEY } from '../utils/cert.js';
+// import { PUBLIC_KEY } from '../utils/cert.js';
 import type { JWTClaims } from '../utils/user-token.js';
 
 export interface AuthRequest extends Request {
@@ -26,9 +26,7 @@ export const authenticateUser = async (
 
   try {
     // @ts-ignore
-    claims = jwt.verify(token, PUBLIC_KEY!, {
-      algorithms: ['RS256'],
-    }) as JWTClaims;
+    claims = jwt.verify(token, process.env.JWT_SECRET!) as JWTClaims;
 
     req.user = claims;
 

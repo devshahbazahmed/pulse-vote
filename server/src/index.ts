@@ -23,14 +23,23 @@ connectDB(process.env.DATABASE_URL!)
     console.log(`Error in connecting to MongoDB Database: ${err}`)
   );
 
-app.use(express.json());
-app.use(express.static(path.resolve('public')));
+const allowedOrigins = [
+  process.env.CLIENT_LOCAL_URL!,
+  process.env.CLIENT_URL!,
+  process.env.CLIENT_LOCAL_URL!,
+];
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL!,
+    origin: allowedOrigins,
     credentials: true,
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
+
+app.use(express.json());
+app.use(express.static(path.resolve('public')));
 
 app.get('/', (_, res) => {
   return res.status(200).json({

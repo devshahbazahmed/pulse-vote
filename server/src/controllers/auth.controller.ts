@@ -4,7 +4,7 @@ import type { JWTClaims } from '../utils/user-token.js';
 import { User } from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { PRIVATE_KEY } from '../utils/cert.js';
+// import { PRIVATE_KEY } from '../utils/cert.js';
 import path from 'node:path';
 
 type RequestWithUser = Request & { user?: JWTClaims };
@@ -60,7 +60,9 @@ async function signinController(req: Request, res: Response) {
     name: user.username,
   };
 
-  const token = jwt.sign(claims, PRIVATE_KEY!, { algorithm: 'RS256' });
+  const token = jwt.sign(claims, process.env.JWT_SECRET!, {
+    expiresIn: '7d',
+  });
   const redirectURL = buildClientRedirectURI(redirect_uri, token, state);
   return res.json({ token, redirectURL });
 }
