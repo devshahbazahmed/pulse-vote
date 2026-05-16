@@ -49,13 +49,11 @@ async function signinController(req: Request, res: Response) {
   }
 
   const ISSUER = `http://localhost:${PORT}`;
-  const now = Math.floor(Date.now() / 1000);
   const claims: JWTClaims = {
     iss: ISSUER,
     sub: user._id.toString(),
     email: user.email,
     email_verified: user.isEmailVerified,
-    exp: now + 60 * 60, // 1 hour
     given_name: user.username,
     name: user.username,
   };
