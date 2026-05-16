@@ -56,7 +56,7 @@ app.get('/.well-known/jwks.json', async (_, res: Response) => {
   return res.json({ keys: [key.toJSON()] });
 });
 
-app.use('/o/', authRoutes);
+app.use('/o', authRoutes);
 app.use('/api/poll', pollRoutes);
 app.use('/api/poll-response', pollResponseRoutes);
 app.use('/api/analytics', analyticsRoutes);
