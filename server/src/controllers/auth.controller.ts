@@ -60,7 +60,7 @@ async function signinController(req: Request, res: Response) {
     name: user.username,
   };
 
-  const token = jwt.sign(claims, PRIVATE_KEY, { algorithm: 'RS256' });
+  const token = jwt.sign(claims, PRIVATE_KEY!, { algorithm: 'RS256' });
   const redirectURL = buildClientRedirectURI(redirect_uri, token, state);
   return res.json({ token, redirectURL });
 }

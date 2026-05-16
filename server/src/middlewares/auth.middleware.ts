@@ -26,7 +26,7 @@ export const authenticateUser = async (
 
   try {
     // @ts-ignore
-    claims = jwt.verify(token, PUBLIC_KEY, {
+    claims = jwt.verify(token, PUBLIC_KEY!, {
       algorithms: ['RS256'],
     }) as JWTClaims;
 
