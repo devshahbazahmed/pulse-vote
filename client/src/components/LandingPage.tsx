@@ -1,4 +1,4 @@
-import type { AppRoute } from '../types';
+import type { AppRoute } from "../types";
 
 type LandingPageProps = {
   isSignedIn: boolean;
@@ -6,7 +6,7 @@ type LandingPageProps = {
 };
 
 function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
-  const primaryRoute = isSignedIn ? '/dashboard' : '/auth';
+  const primaryRoute = isSignedIn ? "/dashboard" : "/auth";
 
   return (
     <main className="landing-page">
@@ -14,7 +14,7 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
         <button
           className="brand-button"
           type="button"
-          onClick={() => onNavigate('/')}
+          onClick={() => onNavigate("/")}
         >
           Pulse Vote
         </button>
@@ -24,7 +24,7 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
           <a href="#demo">Demo</a>
         </nav>
         <div>
-          <button type="button" onClick={() => onNavigate('/auth')}>
+          <button type="button" onClick={() => onNavigate("/auth")}>
             Sign in
           </button>
           <button
@@ -32,7 +32,7 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
             type="button"
             onClick={() => onNavigate(primaryRoute)}
           >
-            {isSignedIn ? 'Open dashboard' : 'Get started'}
+            {isSignedIn ? "Open dashboard" : "Get started"}
           </button>
         </div>
       </header>
@@ -52,9 +52,9 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
               type="button"
               onClick={() => onNavigate(primaryRoute)}
             >
-              {isSignedIn ? 'Go to dashboard' : 'Start polling'}
+              {isSignedIn ? "Go to dashboard" : "Start polling"}
             </button>
-            <button type="button" onClick={() => onNavigate('/auth')}>
+            <button type="button" onClick={() => onNavigate("/auth")}>
               Try demo login
             </button>
           </div>
@@ -108,13 +108,13 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
               <h3>Which feature matters most?</h3>
               <div className="preview-bars">
                 <div>
-                  <span style={{ width: '72%' }} />
+                  <span style={{ width: "72%" }} />
                 </div>
                 <div>
-                  <span style={{ width: '48%' }} />
+                  <span style={{ width: "48%" }} />
                 </div>
                 <div>
-                  <span style={{ width: '31%' }} />
+                  <span style={{ width: "31%" }} />
                 </div>
               </div>
             </section>
@@ -146,19 +146,19 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
         <div className="workflow-steps">
           {[
             [
-              '01',
-              'Create the poll',
-              'Add a title, description, response mode, expiry, and as many multiple-choice questions as you need.',
+              "01",
+              "Create the poll",
+              "Add a title, description, response mode, expiry, and as many multiple-choice questions as you need.",
             ],
             [
-              '02',
-              'Collect responses',
-              'Open the response form from the poll console and let people submit answers without extra friction.',
+              "02",
+              "Collect responses",
+              "Open the response form from the poll console and let people submit answers without extra friction.",
             ],
             [
-              '03',
-              'Publish and analyze',
-              'Publish results when ready, then review totals and vote distribution in the analytics view.',
+              "03",
+              "Publish and analyze",
+              "Publish results when ready, then review totals and vote distribution in the analytics view.",
             ],
           ].map(([step, title, text]) => (
             <article key={step}>
@@ -177,28 +177,28 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
       >
         {[
           [
-            'Poll builder',
-            'Create structured polls with required questions, multiple options, response modes, and optional expiry.',
+            "Poll builder",
+            "Create structured polls with required questions, multiple options, response modes, and optional expiry.",
           ],
           [
-            'Auth dashboard',
-            'Keep poll creation and publishing behind sign-in while response submission stays lightweight.',
+            "Auth dashboard",
+            "Keep poll creation and publishing behind sign-in while response submission stays lightweight.",
           ],
           [
-            'Readable analytics',
-            'See total responses and per-option vote bars without needing to manually calculate percentages.',
+            "Readable analytics",
+            "See total responses and per-option vote bars without needing to manually calculate percentages.",
           ],
           [
-            'Result publishing',
-            'Control when poll results are published so responses can be collected before outcomes are visible.',
+            "Result publishing",
+            "Control when poll results are published so responses can be collected before outcomes are visible.",
           ],
           [
-            'Dark interface',
-            'A focused blue workspace designed for long sessions, scanning, and repeated operational use.',
+            "Dark interface",
+            "A focused blue workspace designed for long sessions, scanning, and repeated operational use.",
           ],
           [
-            'Backend aligned',
-            'The frontend maps directly to the Express routes for auth, polls, poll responses, and analytics.',
+            "Backend aligned",
+            "The frontend maps directly to the Express routes for auth, polls, poll responses, and analytics.",
           ],
         ].map(([title, text]) => (
           <article key={title}>
@@ -218,7 +218,7 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
           type="button"
           onClick={() => onNavigate(primaryRoute)}
         >
-          {isSignedIn ? 'Open dashboard' : 'Get started'}
+          {isSignedIn ? "Open dashboard" : "Get started"}
         </button>
       </section>
 
@@ -227,7 +227,7 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
           <button
             className="brand-button"
             type="button"
-            onClick={() => onNavigate('/')}
+            onClick={() => onNavigate("/")}
           >
             Pulse Vote
           </button>
@@ -240,9 +240,8 @@ function LandingPage({ isSignedIn, onNavigate }: LandingPageProps) {
         <nav aria-label="Footer navigation">
           <a href="#workflow">Workflow</a>
           <a href="#features">Features</a>
-          <a href="#demo">Demo</a>
           <button type="button" onClick={() => onNavigate(primaryRoute)}>
-            {isSignedIn ? 'Dashboard' : 'Sign in'}
+            {isSignedIn ? "Dashboard" : "Sign in"}
           </button>
         </nav>
       </footer>
